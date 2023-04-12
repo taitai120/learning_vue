@@ -1,6 +1,6 @@
 <template>
   <button :class="buttonClass">
-    {{ btnText }}
+    {{ text }}
   </button>
 </template>
 
@@ -8,7 +8,7 @@
 export default {
   name: "ActionButton",
   props: {
-    btnText: {
+    text: {
       type: String,
       default: "",
     },
