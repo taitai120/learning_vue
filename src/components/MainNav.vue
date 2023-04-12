@@ -19,7 +19,13 @@
         </nav>
         <div class="flex items-center h-full ml-auto">
           <profile-image v-if="isLoggedIn" data-test="profile-image" />
-          <action-button v-else @click="login" data-test="action-button" />
+          <action-button
+            v-else
+            @click="login"
+            data-test="action-button"
+            :btn-text="text"
+            type="primary"
+          />
         </div>
       </div>
     </div>
@@ -50,6 +56,7 @@ export default {
         "Jobs",
       ],
       isLoggedIn: false,
+      text: "Sign In",
     };
   },
   methods: {
