@@ -4,9 +4,12 @@
       <div
         class="flex flex-nowrap h-full px-8 mx-auto border-b border-solid border-brand-gray-1"
       >
-        <a :href="url" :myby="123" class="flex items-center h-full text-xl">{{
-          company
-        }}</a>
+        <router-link
+          :href="url"
+          :myby="123"
+          class="flex items-center h-full text-xl"
+          >Bobo Careers</router-link
+        >
         <h2 class="flex items-center h-full ml-8">Developed by {{ author }}</h2>
         <nav class="h-full first:ml-0 ml-9">
           <ul class="flex h-full p-0 m-0 list-none">
@@ -47,7 +50,6 @@ export default {
   },
   data() {
     return {
-      company: "Bobo Careers",
       author: "TaiTai",
       url: "httos://careers.google.com",
       menuItems: [

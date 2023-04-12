@@ -8,8 +8,8 @@
       <div class="relative flex items-center flex-1 h-full pr-3">
         <label class="absolute left-0 -top-10">Role</label>
         <text-input
-          placeholder="Software Engineer"
           v-model="role"
+          placeholder="Software Engineer"
           @handleInput="role = $event"
         />
       </div>
@@ -23,8 +23,8 @@
       <div class="relative flex items-center flex-1 h-full pl-3">
         <label class="absolute left-0 -top-10">Where?</label>
         <text-input
-          placeholder="Los Angeles"
           v-model="location"
+          placeholder="Los Angeles"
           @handleInput="location = $event"
         />
       </div>
