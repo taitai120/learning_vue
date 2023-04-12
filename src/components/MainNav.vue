@@ -18,8 +18,8 @@
           </ul>
         </nav>
         <div class="flex items-center h-full ml-auto">
-          <profile-image v-if="isLoggedIn" />
-          <action-button v-else />
+          <profile-image v-if="isLoggedIn" data-test="profile-image" />
+          <action-button v-else @click="login" data-test="action-button" />
         </div>
       </div>
     </div>
@@ -51,6 +51,14 @@ export default {
       ],
       isLoggedIn: false,
     };
+  },
+  methods: {
+    login() {
+      this.isLoggedIn = true;
+    },
+    logout() {
+      this.isLoggedIn = false;
+    },
   },
 };
 </script>
