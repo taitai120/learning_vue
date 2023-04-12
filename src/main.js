@@ -9,4 +9,4 @@ library.add(faSearch);
 
 const app = createApp(App);
 
-app.component("font-awesome-icon", FontAwesomeIcon).mount("#app");
+app.component("FontAwesomeIcon", FontAwesomeIcon).mount("#app");
