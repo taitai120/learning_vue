@@ -8,6 +8,6 @@ import router from "./router";
 
 library.add(faSearch);
 
-const app = createApp(App).use(router);
+const app = createApp(App);
 
 app.use(router).component("FontAwesomeIcon", FontAwesomeIcon).mount("#app");

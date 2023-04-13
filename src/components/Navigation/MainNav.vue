@@ -5,7 +5,7 @@
         class="flex flex-nowrap h-full px-8 mx-auto border-b border-solid border-brand-gray-1"
       >
         <router-link
-          :href="url"
+          :to="{ name: 'Home' }"
           :myby="123"
           class="flex items-center h-full text-xl"
           >Bobo Careers</router-link
@@ -13,10 +13,13 @@
         <h2 class="flex items-center h-full ml-8">Developed by {{ author }}</h2>
         <nav class="h-full first:ml-0 ml-9">
           <ul class="flex h-full p-0 m-0 list-none">
-            <li v-for="item in menuItems" :key="item" class="h-full ml-9">
-              <a href="" class="flex items-center h-full py-2.5">
-                {{ item }}
-              </a>
+            <li v-for="item in menuItems" :key="item.text" class="h-full ml-9">
+              <router-link
+                :to="item.url"
+                class="flex items-center h-full py-2.5"
+              >
+                {{ item.text }}
+              </router-link>
             </li>
           </ul>
         </nav>
@@ -53,13 +56,12 @@ export default {
       author: "TaiTai",
       url: "httos://careers.google.com",
       menuItems: [
-        "Teams",
-        "Locations",
-        "Life at Bobo Corp",
-        "How we hire",
-        "Locations",
-        "Students",
-        "Jobs",
+        { text: "Teams", url: "/teams" },
+        { text: "Life at Bobo Corp", url: "/" },
+        { text: "How we hire", url: "/" },
+        { text: "Locations", url: "/locations" },
+        { text: "Students", url: "/students" },
+        { text: "Jobs", url: "/jobs/results" },
       ],
       isLoggedIn: false,
       text: "Sign In",
@@ -72,6 +74,9 @@ export default {
         "h-32": this.isLoggedIn,
       };
     },
+  },
+  mounted() {
+    console.log(this.menuItems);
   },
   methods: {
     login() {
