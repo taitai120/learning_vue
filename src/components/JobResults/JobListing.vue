@@ -65,6 +65,7 @@ export default {
   async mounted() {
     await this.FETCH_JOBS();
     this.totalPages = this.jobs.length / this.limit;
+    console.log("ENV: ", process.env);
   },
   methods: {
     ...mapActions([FETCH_JOBS]),
