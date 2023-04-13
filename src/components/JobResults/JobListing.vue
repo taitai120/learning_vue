@@ -25,7 +25,8 @@
 </template>
 
 <script>
-import axios from "axios";
+import { mapState, mapActions } from "vuex";
+import { FETCH_JOBS } from "@/store";
 import JobItem from "@/components/JobResults/JobItem.vue";
 export default {
   name: "JobListing",
@@ -34,7 +35,6 @@ export default {
   },
   data() {
     return {
-      jobs: [],
       limit: 10,
       totalPages: null,
     };
@@ -60,16 +60,14 @@ export default {
       const firstPage = 1;
       return previousPage >= firstPage ? previousPage : undefined;
     },
+    ...mapState(["jobs"]),
   },
-  mounted() {
-    this.getData();
+  async mounted() {
+    await this.FETCH_JOBS();
+    this.totalPages = this.jobs.length / this.limit;
   },
   methods: {
-    async getData() {
-      const response = await axios.get("http://localhost:3000/jobs");
-      this.jobs = response.data;
-      this.totalPages = Math.ceil(response.data.length / this.limit);
-    },
+    ...mapActions([FETCH_JOBS]),
   },
 };
 </script>
