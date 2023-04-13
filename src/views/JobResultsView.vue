@@ -1,16 +1,18 @@
 <template>
-  <h1 class="text-6xl font-bold">Job Results View</h1>
-  <h2>{{ experiment }}</h2>
+  <div class="flex flex-row flex-nowrap w-full">
+    <job-filters-sidebar />
+    <job-listing />
+  </div>
 </template>
 
 <script>
+import JobFiltersSidebar from "@/components/JobResults/JobFiltersSidebar/JobFiltersSidebar.vue";
+import JobListing from "@/components/JobResults/JobListing.vue";
 export default {
   name: "JobResultsView",
-  computed: {
-    experiment() {
-      console.log(this.$route);
-      return "123";
-    },
+  components: {
+    JobFiltersSidebar,
+    JobListing,
   },
 };
 </script>
