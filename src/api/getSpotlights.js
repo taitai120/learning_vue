@@ -1,12 +1,12 @@
 import axios from "axios";
 import { BASE_URL } from "./constant";
-const getJobs = async () => {
+const getSpotlights = async () => {
   try {
-    const response = await axios.get(`${BASE_URL}/jobs`);
+    const response = await axios.get(`${BASE_URL}/spotlights`);
     return response.data;
   } catch (error) {
     console.log(error);
   }
 };
 
-export default getJobs;
+export default getSpotlights;
