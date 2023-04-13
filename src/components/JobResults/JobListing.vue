@@ -39,9 +39,6 @@ export default {
       totalPages: null,
     };
   },
-  mounted() {
-    this.getData();
-  },
   computed: {
     currentPage() {
       const pageString = this.$route.query.page || "1";
@@ -63,6 +60,9 @@ export default {
       const firstPage = 1;
       return previousPage >= firstPage ? previousPage : undefined;
     },
+  },
+  mounted() {
+    this.getData();
   },
   methods: {
     async getData() {

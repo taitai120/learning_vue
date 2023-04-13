@@ -9,5 +9,15 @@
 <script>
 export default {
   name: "JobFiltersSidebar",
+  mounted() {
+    console.log("current logged in state: ", this.$store.state.isLoggedIn);
+    this.$store.commit("LOGIN_USER");
+    setTimeout(() => {
+      console.log(
+        "after 1 second, current logged in state: ",
+        this.$store.state.isLoggedIn
+      );
+    }, 2000);
+  },
 };
 </script>

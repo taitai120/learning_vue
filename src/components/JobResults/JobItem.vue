@@ -60,13 +60,13 @@ export default {
       required: true,
     },
   },
-  mounted() {
-    console.log(this.job);
-  },
   computed: {
     jobPageLink() {
       return `/jobs/results/${this.job.id}`;
     },
+  },
+  mounted() {
+    console.log(this.job);
   },
 };
 </script>
