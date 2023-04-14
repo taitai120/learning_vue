@@ -9,7 +9,7 @@
           <action-button text="Clear Filters" type="secondary" />
         </div>
       </div>
-      <accordion header="Job Types">
+      <!-- <accordion header="Job Types">
         <div class="mt-5">
           <fieldset>
             <ul class="flex flex-row flex-wrap">
@@ -32,22 +32,23 @@
             </ul>
           </fieldset>
         </div>
-      </accordion>
+      </accordion> -->
       <job-filters-sidebar-organizations />
+      <job-filters-sidebar-job-types />
     </section>
   </div>
 </template>
 
 <script>
 import ActionButton from "@/components/Shared/ActionButton.vue";
-import Accordion from "@/components/Shared/Accordion.vue";
 import JobFiltersSidebarOrganizations from "./JobFiltersSidebarOrganizations.vue";
+import JobFiltersSidebarJobTypes from "./JobFiltersSidebarJobTypes.vue";
 export default {
   name: "JobFiltersSidebar",
   components: {
     ActionButton,
-    Accordion,
     JobFiltersSidebarOrganizations,
+    JobFiltersSidebarJobTypes,
   },
   mounted() {
     // console.log("current logged in state: ", this.$store.state.isLoggedIn);

@@ -44,11 +44,10 @@ export default {
   },
   methods: {
     selectOrganization() {
-      console.log(this.selectedOrganizations);
       this.ADD_SELECTED_ORGANIZATIONS(this.selectedOrganizations);
-      setTimeout(() => {
-        console.log(this.$store.state.selectedOrganizations);
-      }, 1000);
+      this.$router.push({
+        name: "JobResults",
+      });
     },
     ...mapMutations([ADD_SELECTED_ORGANIZATIONS]),
   },

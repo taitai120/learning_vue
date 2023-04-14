@@ -4,5 +4,6 @@ export const state = () => {
     jobs: [],
     spotlights: [],
     selectedOrganizations: [],
+    selectedJobTypes: [],
   };
 };
