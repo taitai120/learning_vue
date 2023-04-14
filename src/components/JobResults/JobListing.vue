@@ -25,8 +25,8 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
-import { FETCH_JOBS } from "@/store";
+import { mapGetters, mapActions } from "vuex";
+import { FETCH_JOBS, FILTERED_JOBS_BY_ORGANIZATION } from "@/store/constants";
 import JobItem from "@/components/JobResults/JobItem.vue";
 export default {
   name: "JobListing",
@@ -48,11 +48,14 @@ export default {
       const pageNumber = this.currentPage;
       const firstJobIndex = (pageNumber - 1) * this.limit;
       const lastJobIndex = pageNumber * this.limit;
-      return this.jobs.slice(firstJobIndex, lastJobIndex);
+      return this.FILTERED_JOBS_BY_ORGANIZATION.slice(
+        firstJobIndex,
+        lastJobIndex
+      );
     },
     nextPage() {
       const nextPage = this.currentPage + 1;
-      const maxPage = this.totalPages;
+      const maxPage = this.totalPage;
       return nextPage <= maxPage ? nextPage : undefined;
     },
     previousPage() {
@@ -60,11 +63,13 @@ export default {
       const firstPage = 1;
       return previousPage >= firstPage ? previousPage : undefined;
     },
-    ...mapState(["jobs"]),
+    totalPage() {
+      return this.FILTERED_JOBS_BY_ORGANIZATION.length / this.limit;
+    },
+    ...mapGetters([FILTERED_JOBS_BY_ORGANIZATION]),
   },
   async mounted() {
     await this.FETCH_JOBS();
-    this.totalPages = this.jobs.length / this.limit;
   },
   methods: {
     ...mapActions([FETCH_JOBS]),

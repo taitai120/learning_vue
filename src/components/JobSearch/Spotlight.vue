@@ -12,15 +12,14 @@
 
 <script>
 import { mapActions, mapState } from "vuex";
-import { FETCH_SPOTLIGHTS } from "@/store";
+import { FETCH_SPOTLIGHTS } from "@/store/constants";
 export default {
   name: "Spotlight",
-
-  async mounted() {
-    await this.FETCH_SPOTLIGHTS();
-  },
   computed: {
     ...mapState(["spotlights"]),
+  },
+  async mounted() {
+    await this.FETCH_SPOTLIGHTS();
   },
   methods: {
     ...mapActions([FETCH_SPOTLIGHTS]),

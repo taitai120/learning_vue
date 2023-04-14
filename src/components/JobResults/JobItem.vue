@@ -65,8 +65,6 @@ export default {
       return `/jobs/results/${this.job.id}`;
     },
   },
-  mounted() {
-    console.log(this.job);
-  },
+  mounted() {},
 };
 </script>

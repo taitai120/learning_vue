@@ -33,7 +33,6 @@
           </fieldset>
         </div>
       </accordion>
-      <accordion header="???"></accordion>
       <job-filters-sidebar-organizations />
     </section>
   </div>
@@ -51,14 +50,14 @@ export default {
     JobFiltersSidebarOrganizations,
   },
   mounted() {
-    console.log("current logged in state: ", this.$store.state.isLoggedIn);
-    this.$store.commit("LOGIN_USER");
-    setTimeout(() => {
-      console.log(
-        "after 1 second, current logged in state: ",
-        this.$store.state.isLoggedIn
-      );
-    }, 2000);
+    // console.log("current logged in state: ", this.$store.state.isLoggedIn);
+    // this.$store.commit("LOGIN_USER");
+    // setTimeout(() => {
+    //   console.log(
+    //     "after 1 second, current logged in state: ",
+    //     this.$store.state.isLoggedIn
+    //   );
+    // }, 2000);
   },
 };
 </script>
