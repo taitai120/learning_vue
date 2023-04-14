@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import { toRefs, computed } from "vue";
 export default {
   name: "ActionButton",
   props: {
@@ -20,18 +21,30 @@ export default {
       },
     },
   },
-  computed: {
-    buttonClass() {
+  setup(props) {
+    const { type } = toRefs(props);
+    const buttonClass = computed(() => {
       return {
-        [this.type]: true,
+        [type.value]: true,
       };
-    },
+    });
+
+    return {
+      buttonClass,
+    };
   },
-  methods: {
-    doubleHeight() {
-      this.height *= 2;
-    },
-  },
+  // computed: {
+  //   buttonClass() {
+  //     return {
+  //       [this.type]: true,
+  //     };
+  //   },
+  // },
+  // methods: {
+  //   doubleHeight() {
+  //     this.height *= 2;
+  //   },
+  // },
 };
 </script>
 
